@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity O2oCar.
+    -->
+    <changeSet id="20190725184751-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="id"
+                                 baseTableName="o2o_car"
+                                 constraintName="fk_o2o_car_o2o_driver_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="o2o_driver"/>
+
+    </changeSet>
+</databaseChangeLog>

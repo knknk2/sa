@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity M2mCar.
+    -->
+    <changeSet id="20190725184135-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="m2m_car_id"
+                                 baseTableName="m2m_car_m2m_driver"
+                                 constraintName="fk_m2m_car_m2m_driver_m2m_car_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m2m_car"/>
+
+        <addForeignKeyConstraint baseColumnNames="m2m_driver_id"
+                                 baseTableName="m2m_car_m2m_driver"
+                                 constraintName="fk_m2m_car_m2m_driver_m2m_driver_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="m2m_driver"/>
+        
+    </changeSet>
+</databaseChangeLog>

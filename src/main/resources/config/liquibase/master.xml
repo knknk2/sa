@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="longvarchar" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725171516_added_entity_Fields.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725174559_added_entity_Bo2mOwnerDTO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725174559_added_entity_Bo2mOwner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725174943_added_entity_Bo2mCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725174943_added_entity_Bo2mCarDTO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725175457_added_entity_Um2oOwner.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725175819_added_entity_Um2oCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725180827_added_entity_To2mPerson.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725180827_added_entity_To2mPersonInf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725181155_added_entity_To2mCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725181155_added_entity_To2mCarInf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725183950_added_entity_M2mDriver.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725183950_added_entity_M2mDriverDTOMF.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184135_added_entity_M2mCarDTOMF.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184135_added_entity_M2mCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184531_added_entity_O2oDriver.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184751_added_entity_O2oCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184933_added_entity_Uo2oPassport.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184933_added_entity_Uo2oPassportDTOMF.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725185125_added_entity_Uo2oCitizen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725185125_added_entity_Uo2oCitizenDTOMF.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190725174943_added_entity_constraints_Bo2mCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725174943_added_entity_constraints_Bo2mCarDTO.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725175819_added_entity_constraints_Um2oCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725181155_added_entity_constraints_To2mCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725181155_added_entity_constraints_To2mCarInf.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184135_added_entity_constraints_M2mCarDTOMF.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184135_added_entity_constraints_M2mCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725184751_added_entity_constraints_O2oCar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725185125_added_entity_constraints_Uo2oCitizen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190725185125_added_entity_constraints_Uo2oCitizenDTOMF.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>
