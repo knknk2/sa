@@ -3,7 +3,7 @@
     "promptValues": {
       "packageName": "com.sa.sa"
     },
-    "jhipsterVersion": "6.2.0",
+    "jhipsterVersion": "6.3.1",
     "applicationType": "monolith",
     "baseName": "sampleapp",
     "packageName": "com.sa.sa",
@@ -30,6 +30,7 @@
     "enableTranslation": false,
     "clientPackageManager": "npm",
     "skipClient": true,
-    "blueprints": []
+    "blueprints": [],
+    "embeddableLaunchScript": false
   }
 }

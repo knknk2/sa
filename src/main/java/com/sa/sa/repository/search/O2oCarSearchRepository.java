@@ -1,5 +1,4 @@
 package com.sa.sa.repository.search;
-
 import com.sa.sa.domain.O2oCar;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 

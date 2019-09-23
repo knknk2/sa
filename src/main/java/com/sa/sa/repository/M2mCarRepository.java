@@ -1,5 +1,4 @@
 package com.sa.sa.repository;
-
 import com.sa.sa.domain.M2mCar;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

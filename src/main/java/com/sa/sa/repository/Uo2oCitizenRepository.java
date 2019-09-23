@@ -1,5 +1,4 @@
 package com.sa.sa.repository;
-
 import com.sa.sa.domain.Uo2oCitizen;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

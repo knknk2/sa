@@ -1,5 +1,4 @@
 package com.sa.sa.repository.search;
-
 import com.sa.sa.domain.Uo2oCitizen;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 

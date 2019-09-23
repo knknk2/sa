@@ -1,5 +1,4 @@
 package com.sa.sa.repository;
-
 import com.sa.sa.domain.Bo2mCarDTO;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

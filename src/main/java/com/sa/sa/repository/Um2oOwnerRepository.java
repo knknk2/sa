@@ -1,5 +1,4 @@
 package com.sa.sa.repository;
-
 import com.sa.sa.domain.Um2oOwner;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

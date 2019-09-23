@@ -1,5 +1,4 @@
 package com.sa.sa.repository.search;
-
 import com.sa.sa.domain.M2mDriver;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
