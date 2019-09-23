@@ -79,10 +79,10 @@ public class M2mDriverDTOMFQueryService extends QueryService<M2mDriverDTOMF> {
     }
 
     /**
-     * Function to convert ConsumerCriteria to a {@link Specification}
+     * Function to convert {@link M2mDriverDTOMFCriteria} to a {@link Specification}
      * @param criteria The object which holds all the filters, which the entities should match.
      * @return the matching {@link Specification} of the entity.
-     */    
+     */
     protected Specification<M2mDriverDTOMF> createSpecification(M2mDriverDTOMFCriteria criteria) {
         Specification<M2mDriverDTOMF> specification = Specification.where(null);
         if (criteria != null) {

@@ -79,10 +79,10 @@ public class Uo2oPassportDTOMFQueryService extends QueryService<Uo2oPassportDTOM
     }
 
     /**
-     * Function to convert ConsumerCriteria to a {@link Specification}
+     * Function to convert {@link Uo2oPassportDTOMFCriteria} to a {@link Specification}
      * @param criteria The object which holds all the filters, which the entities should match.
      * @return the matching {@link Specification} of the entity.
-     */    
+     */
     protected Specification<Uo2oPassportDTOMF> createSpecification(Uo2oPassportDTOMFCriteria criteria) {
         Specification<Uo2oPassportDTOMF> specification = Specification.where(null);
         if (criteria != null) {

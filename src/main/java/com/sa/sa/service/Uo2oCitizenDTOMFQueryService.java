@@ -79,10 +79,10 @@ public class Uo2oCitizenDTOMFQueryService extends QueryService<Uo2oCitizenDTOMF>
     }
 
     /**
-     * Function to convert ConsumerCriteria to a {@link Specification}
+     * Function to convert {@link Uo2oCitizenDTOMFCriteria} to a {@link Specification}
      * @param criteria The object which holds all the filters, which the entities should match.
      * @return the matching {@link Specification} of the entity.
-     */    
+     */
     protected Specification<Uo2oCitizenDTOMF> createSpecification(Uo2oCitizenDTOMFCriteria criteria) {
         Specification<Uo2oCitizenDTOMF> specification = Specification.where(null);
         if (criteria != null) {

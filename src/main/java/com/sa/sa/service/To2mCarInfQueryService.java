@@ -79,10 +79,10 @@ public class To2mCarInfQueryService extends QueryService<To2mCarInf> {
     }
 
     /**
-     * Function to convert ConsumerCriteria to a {@link Specification}
+     * Function to convert {@link To2mCarInfCriteria} to a {@link Specification}
      * @param criteria The object which holds all the filters, which the entities should match.
      * @return the matching {@link Specification} of the entity.
-     */    
+     */
     protected Specification<To2mCarInf> createSpecification(To2mCarInfCriteria criteria) {
         Specification<To2mCarInf> specification = Specification.where(null);
         if (criteria != null) {

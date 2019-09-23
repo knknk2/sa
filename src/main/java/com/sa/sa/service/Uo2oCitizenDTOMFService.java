@@ -45,7 +45,7 @@ public class Uo2oCitizenDTOMFService {
      */
     public Uo2oCitizenDTOMF save(Uo2oCitizenDTOMF uo2oCitizenDTOMF) {
         log.debug("Request to save Uo2oCitizenDTOMF : {}", uo2oCitizenDTOMF);
-        Long uo2oPassportDTOMFId = uo2oCitizenDTOMF.getUo2oPassportDTOMF().getId();
+        long uo2oPassportDTOMFId = uo2oCitizenDTOMF.getUo2oPassportDTOMF().getId();
         uo2oPassportDTOMFRepository.findById(uo2oPassportDTOMFId).ifPresent(uo2oCitizenDTOMF::uo2oPassportDTOMF);
         Uo2oCitizenDTOMF result = uo2oCitizenDTOMFRepository.save(uo2oCitizenDTOMF);
         uo2oCitizenDTOMFSearchRepository.save(result);

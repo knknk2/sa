@@ -10,7 +10,6 @@ import com.sa.sa.security.AuthoritiesConstants;
 import com.sa.sa.security.SecurityUtils;
 import com.sa.sa.service.dto.UserDTO;
 import com.sa.sa.service.util.RandomUtil;
-import com.sa.sa.web.rest.errors.*;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -96,7 +95,7 @@ public class UserService {
         userRepository.findOneByLogin(userDTO.getLogin().toLowerCase()).ifPresent(existingUser -> {
             boolean removed = removeNonActivatedUser(existingUser);
             if (!removed) {
-                throw new LoginAlreadyUsedException();
+                throw new UsernameAlreadyUsedException();
             }
         });
         userRepository.findOneByEmailIgnoreCase(userDTO.getEmail()).ifPresent(existingUser -> {

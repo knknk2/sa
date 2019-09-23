@@ -6,7 +6,7 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-
+    
     <!--
         Added the entity Fields.
     -->
@@ -18,76 +18,59 @@
             <column name="str" type="varchar(255)">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_str" />
             </column>
-
             <column name="num_1" type="integer">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_num_1" />
             </column>
-
             <column name="num_2" type="bigint">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_num_2" />
             </column>
-
             <column name="num_3" type="${floatType}">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_num_3" />
             </column>
-
             <column name="num_4" type="double">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_num_4" />
             </column>
-
             <column name="num_5" type="decimal(21,2)">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_num_5" />
             </column>
-
             <column name="date_1" type="date">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_date_1" />
             </column>
-
             <column name="date_2" type="datetime">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_date_2" />
             </column>
-
             <column name="date_3" type="datetime">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_date_3" />
             </column>
-
             <column name="date_4" type="bigint">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_date_4" />
             </column>
-
             <column name="uuid" type="${uuidType}">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_uuid" />
             </column>
-
             <column name="bool" type="boolean">
                 <constraints nullable="false" />
             </column>
-
             <column name="enumeration" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="blob" type="longblob">
                 <constraints nullable="false" />
             </column>
             <column name="blob_content_type" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="blob_2" type="longblob">
                 <constraints nullable="false" />
             </column>
             <column name="blob_2_content_type" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-
             <column name="blob_3" type="${clobType}">
                 <constraints nullable="false" unique="true" uniqueConstraintName="ux_fields_blob_3" />
             </column>
-
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
-
         <dropDefaultValue tableName="fields" columnName="date_2" columnDataType="datetime"/>
         <dropDefaultValue tableName="fields" columnName="date_3" columnDataType="datetime"/>
     </changeSet>

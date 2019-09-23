@@ -1,5 +1,4 @@
 package com.sa.sa.repository;
-
 import com.sa.sa.domain.M2mDriver;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

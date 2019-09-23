@@ -45,7 +45,7 @@ public class Uo2oCitizenService {
      */
     public Uo2oCitizen save(Uo2oCitizen uo2oCitizen) {
         log.debug("Request to save Uo2oCitizen : {}", uo2oCitizen);
-        Long uo2oPassportId = uo2oCitizen.getUo2oPassport().getId();
+        long uo2oPassportId = uo2oCitizen.getUo2oPassport().getId();
         uo2oPassportRepository.findById(uo2oPassportId).ifPresent(uo2oCitizen::uo2oPassport);
         Uo2oCitizen result = uo2oCitizenRepository.save(uo2oCitizen);
         uo2oCitizenSearchRepository.save(result);

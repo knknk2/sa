@@ -1,5 +1,4 @@
 package com.sa.sa.repository;
-
 import com.sa.sa.domain.O2oDriver;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.stereotype.Repository;

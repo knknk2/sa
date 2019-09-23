@@ -45,7 +45,7 @@ public class O2oCarService {
      */
     public O2oCar save(O2oCar o2oCar) {
         log.debug("Request to save O2oCar : {}", o2oCar);
-        Long o2oDriverId = o2oCar.getO2oDriver().getId();
+        long o2oDriverId = o2oCar.getO2oDriver().getId();
         o2oDriverRepository.findById(o2oDriverId).ifPresent(o2oCar::o2oDriver);
         O2oCar result = o2oCarRepository.save(o2oCar);
         o2oCarSearchRepository.save(result);

@@ -1,2 +1,1 @@
 id;str;num_1;num_2;num_3;num_4;num_5;date_1;date_2;date_3;date_4;uuid;bool;enumeration;blob;blob_content_type;blob_2;blob_2_content_type;blob_3
-1;oFhasCisPeZ2XfoCHJKoQiNXVyoJozS8i7LVjJA2vXPLYV;78;599;60;15;45;2019-08-01;2019-08-01T17:33:46;2019-08-01T18:34:05;45924;d592ba00-fbdf-4302-b294-980604896204;true;VALID;../fake-data/blob/hipster.png;image/png;../fake-data/blob/hipster.png;image/png;xXbl5jUVuKwWT1MoDkXHv86ZbzvcZkPtxirMoAu
