@@ -37,9 +37,6 @@ local.properties
 .loadpath
 .factorypath
 /src/main/resources/rebel.xml
-.jhipster
-.yo-rc.json
-banner.txt
 
 # External tool builders
 .externalToolBuilders/**

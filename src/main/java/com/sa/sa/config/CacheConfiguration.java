@@ -1,9 +1,8 @@
 package com.sa.sa.config;
 
-import java.time.Duration;
-
-import org.ehcache.config.builders.*;
-import org.ehcache.jsr107.Eh107Configuration;
+import com.github.benmanes.caffeine.jcache.configuration.CaffeineConfiguration;
+import java.util.OptionalLong;
+import java.util.concurrent.TimeUnit;
 
 import org.hibernate.cache.jcache.ConfigSettings;
 import io.github.jhipster.config.JHipsterProperties;
@@ -20,13 +19,13 @@ public class CacheConfiguration {
     private final javax.cache.configuration.Configuration<Object, Object> jcacheConfiguration;
 
     public CacheConfiguration(JHipsterProperties jHipsterProperties) {
-        JHipsterProperties.Cache.Ehcache ehcache = jHipsterProperties.getCache().getEhcache();
+        JHipsterProperties.Cache.Caffeine caffeine = jHipsterProperties.getCache().getCaffeine();
 
-        jcacheConfiguration = Eh107Configuration.fromEhcacheCacheConfiguration(
-            CacheConfigurationBuilder.newCacheConfigurationBuilder(Object.class, Object.class,
-                ResourcePoolsBuilder.heap(ehcache.getMaxEntries()))
-                .withExpiry(ExpiryPolicyBuilder.timeToLiveExpiration(Duration.ofSeconds(ehcache.getTimeToLiveSeconds())))
-                .build());
+        CaffeineConfiguration caffeineConfiguration = new CaffeineConfiguration();
+        caffeineConfiguration.setMaximumSize(OptionalLong.of(caffeine.getMaxEntries()));
+        caffeineConfiguration.setExpireAfterWrite(OptionalLong.of(TimeUnit.SECONDS.toNanos(caffeine.getTimeToLiveSeconds())));
+        caffeineConfiguration.setStatisticsEnabled(true);
+        jcacheConfiguration = caffeineConfiguration;
     }
 
     @Bean
@@ -73,7 +72,7 @@ public class CacheConfiguration {
             createCache(cm, com.sa.sa.domain.Uo2oPassportDTOMF.class.getName());
             createCache(cm, com.sa.sa.domain.Uo2oCitizen.class.getName());
             createCache(cm, com.sa.sa.domain.Uo2oCitizenDTOMF.class.getName());
-            // jhipster-needle-ehcache-add-entry
+            // jhipster-needle-caffeine-add-entry
         };
     }
 
