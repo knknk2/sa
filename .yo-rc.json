@@ -10,7 +10,7 @@
     "packageFolder": "com/sa/sa",
     "serverPort": "8080",
     "authenticationType": "jwt",
-    "cacheProvider": "ehcache",
+    "cacheProvider": "caffeine",
     "enableHibernateCache": true,
     "websocket": "spring-websocket",
     "databaseType": "sql",
