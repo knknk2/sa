@@ -62,7 +62,7 @@ public class Bo2mOwnerResource {
         }
         Bo2mOwner result = bo2mOwnerService.save(bo2mOwner);
         return ResponseEntity.created(new URI("/api/bo-2-m-owners/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -83,7 +83,7 @@ public class Bo2mOwnerResource {
         }
         Bo2mOwner result = bo2mOwnerService.save(bo2mOwner);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, bo2mOwner.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, bo2mOwner.getId().toString()))
             .body(result);
     }
 
@@ -126,7 +126,7 @@ public class Bo2mOwnerResource {
     public ResponseEntity<Void> deleteBo2mOwner(@PathVariable Long id) {
         log.debug("REST request to delete Bo2mOwner : {}", id);
         bo2mOwnerService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

@@ -67,7 +67,7 @@ public class M2mCarDTOMFResource {
         }
         M2mCarDTOMF result = m2mCarDTOMFService.save(m2mCarDTOMF);
         return ResponseEntity.created(new URI("/api/m-2-m-car-dtomfs/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -88,7 +88,7 @@ public class M2mCarDTOMFResource {
         }
         M2mCarDTOMF result = m2mCarDTOMFService.save(m2mCarDTOMF);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, m2mCarDTOMF.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, m2mCarDTOMF.getId().toString()))
             .body(result);
     }
 
@@ -144,7 +144,7 @@ public class M2mCarDTOMFResource {
     public ResponseEntity<Void> deleteM2mCarDTOMF(@PathVariable Long id) {
         log.debug("REST request to delete M2mCarDTOMF : {}", id);
         m2mCarDTOMFService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

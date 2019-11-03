@@ -1,0 +1,38 @@
+{
+  "sampleappApp": {
+    "fields": {
+      "home": {
+        "title": "Fields",
+        "createLabel": "Fields erstellen",
+        "createOrEditLabel": "Fields erstellen oder bearbeiten",
+        "search": "Suche nach Fields",
+        "notFound": "No Fields found"
+      },
+      "created": "Fields erstellt mit ID {{ param }}",
+      "updated": "Fields aktualisiert mit ID {{ param }}",
+      "deleted": "Fields gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Fields {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Fields"
+      },
+      "str": "Str",
+      "num1": "Num 1",
+      "num2": "Num 2",
+      "num3": "Num 3",
+      "num4": "Num 4",
+      "num5": "Num 5",
+      "date1": "Date 1",
+      "date2": "Date 2",
+      "date3": "Date 3",
+      "date4": "Date 4",
+      "uuid": "Uuid",
+      "bool": "Bool",
+      "enumeration": "Enumeration",
+      "blob": "Blob",
+      "blob2": "Blob 2",
+      "blob3": "Blob 3"
+    }
+  }
+}

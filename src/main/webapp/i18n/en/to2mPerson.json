@@ -1,0 +1,25 @@
+{
+  "sampleappApp": {
+    "to2mPerson": {
+      "home": {
+        "title": "To 2 M People",
+        "createLabel": "Create a new To 2 M Person",
+        "createOrEditLabel": "Create or edit a To 2 M Person",
+        "search": "Search for To 2 M Person",
+        "notFound": "No To 2 M People found"
+      },
+      "created": "A new To 2 M Person is created with identifier {{ param }}",
+      "updated": "A To 2 M Person is updated with identifier {{ param }}",
+      "deleted": "A To 2 M Person is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete To 2 M Person {{ id }}?"
+      },
+      "detail": {
+        "title": "To 2 M Person"
+      },
+      "name": "Name",
+      "to2mOwnedCar": "To 2 M Owned Car",
+      "to2mDrivedCar": "To 2 M Drived Car"
+    }
+  }
+}

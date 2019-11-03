@@ -67,7 +67,7 @@ public class M2mDriverDTOMFResource {
         }
         M2mDriverDTOMF result = m2mDriverDTOMFService.save(m2mDriverDTOMF);
         return ResponseEntity.created(new URI("/api/m-2-m-driver-dtomfs/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -88,7 +88,7 @@ public class M2mDriverDTOMFResource {
         }
         M2mDriverDTOMF result = m2mDriverDTOMFService.save(m2mDriverDTOMF);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, m2mDriverDTOMF.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, m2mDriverDTOMF.getId().toString()))
             .body(result);
     }
 
@@ -144,7 +144,7 @@ public class M2mDriverDTOMFResource {
     public ResponseEntity<Void> deleteM2mDriverDTOMF(@PathVariable Long id) {
         log.debug("REST request to delete M2mDriverDTOMF : {}", id);
         m2mDriverDTOMFService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

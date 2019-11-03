@@ -62,7 +62,7 @@ public class Uo2oPassportResource {
         }
         Uo2oPassport result = uo2oPassportService.save(uo2oPassport);
         return ResponseEntity.created(new URI("/api/uo-2-o-passports/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -83,7 +83,7 @@ public class Uo2oPassportResource {
         }
         Uo2oPassport result = uo2oPassportService.save(uo2oPassport);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, uo2oPassport.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, uo2oPassport.getId().toString()))
             .body(result);
     }
 
@@ -126,7 +126,7 @@ public class Uo2oPassportResource {
     public ResponseEntity<Void> deleteUo2oPassport(@PathVariable Long id) {
         log.debug("REST request to delete Uo2oPassport : {}", id);
         uo2oPassportService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

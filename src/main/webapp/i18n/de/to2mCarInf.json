@@ -1,0 +1,25 @@
+{
+  "sampleappApp": {
+    "to2mCarInf": {
+      "home": {
+        "title": "To 2 M Car Infs",
+        "createLabel": "To 2 M Car Inf erstellen",
+        "createOrEditLabel": "To 2 M Car Inf erstellen oder bearbeiten",
+        "search": "Suche nach To 2 M Car Inf",
+        "notFound": "No To 2 M Car Infs found"
+      },
+      "created": "To 2 M Car Inf erstellt mit ID {{ param }}",
+      "updated": "To 2 M Car Inf aktualisiert mit ID {{ param }}",
+      "deleted": "To 2 M Car Inf gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll To 2 M Car Inf {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "To 2 M Car Inf"
+      },
+      "name": "Name",
+      "to2mOwnerInf": "To 2 M Owner Inf",
+      "to2mDriverInf": "To 2 M Driver Inf"
+    }
+  }
+}

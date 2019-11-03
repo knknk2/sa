@@ -1,0 +1,25 @@
+{
+  "sampleappApp": {
+    "to2mPersonInf": {
+      "home": {
+        "title": "To 2 M Person Infs",
+        "createLabel": "Create a new To 2 M Person Inf",
+        "createOrEditLabel": "Create or edit a To 2 M Person Inf",
+        "search": "Search for To 2 M Person Inf",
+        "notFound": "No To 2 M Person Infs found"
+      },
+      "created": "A new To 2 M Person Inf is created with identifier {{ param }}",
+      "updated": "A To 2 M Person Inf is updated with identifier {{ param }}",
+      "deleted": "A To 2 M Person Inf is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete To 2 M Person Inf {{ id }}?"
+      },
+      "detail": {
+        "title": "To 2 M Person Inf"
+      },
+      "name": "Name",
+      "to2mOwnedCarInf": "To 2 M Owned Car Inf",
+      "to2mDrivedCarInf": "To 2 M Drived Car Inf"
+    }
+  }
+}

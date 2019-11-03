@@ -1,0 +1,25 @@
+{
+  "sampleappApp": {
+    "bo2mCar": {
+      "home": {
+        "title": "Bo 2 M Cars",
+        "createLabel": "Bo 2 M Car erstellen",
+        "createOrEditLabel": "Bo 2 M Car erstellen oder bearbeiten",
+        "search": "Suche nach Bo 2 M Car",
+        "notFound": "No Bo 2 M Cars found"
+      },
+      "created": "Bo 2 M Car erstellt mit ID {{ param }}",
+      "updated": "Bo 2 M Car aktualisiert mit ID {{ param }}",
+      "deleted": "Bo 2 M Car gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Bo 2 M Car {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Bo 2 M Car"
+      },
+      "name": "Name",
+      "createdAt": "Created At",
+      "bo2mOwner": "Bo 2 M Owner"
+    }
+  }
+}

@@ -62,7 +62,7 @@ public class Bo2mOwnerDTOResource {
         }
         Bo2mOwnerDTO result = bo2mOwnerDTOService.save(bo2mOwnerDTO);
         return ResponseEntity.created(new URI("/api/bo-2-m-owner-dtos/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -83,7 +83,7 @@ public class Bo2mOwnerDTOResource {
         }
         Bo2mOwnerDTO result = bo2mOwnerDTOService.save(bo2mOwnerDTO);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, bo2mOwnerDTO.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, bo2mOwnerDTO.getId().toString()))
             .body(result);
     }
 
@@ -126,7 +126,7 @@ public class Bo2mOwnerDTOResource {
     public ResponseEntity<Void> deleteBo2mOwnerDTO(@PathVariable Long id) {
         log.debug("REST request to delete Bo2mOwnerDTO : {}", id);
         bo2mOwnerDTOService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

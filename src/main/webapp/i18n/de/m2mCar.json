@@ -1,0 +1,24 @@
+{
+  "sampleappApp": {
+    "m2mCar": {
+      "home": {
+        "title": "M 2 M Cars",
+        "createLabel": "M 2 M Car erstellen",
+        "createOrEditLabel": "M 2 M Car erstellen oder bearbeiten",
+        "search": "Suche nach M 2 M Car",
+        "notFound": "No M 2 M Cars found"
+      },
+      "created": "M 2 M Car erstellt mit ID {{ param }}",
+      "updated": "M 2 M Car aktualisiert mit ID {{ param }}",
+      "deleted": "M 2 M Car gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll M 2 M Car {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "M 2 M Car"
+      },
+      "name": "Name",
+      "m2mDriver": "M 2 M Driver"
+    }
+  }
+}

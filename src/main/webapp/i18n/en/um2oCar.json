@@ -1,0 +1,24 @@
+{
+  "sampleappApp": {
+    "um2oCar": {
+      "home": {
+        "title": "Um 2 O Cars",
+        "createLabel": "Create a new Um 2 O Car",
+        "createOrEditLabel": "Create or edit a Um 2 O Car",
+        "search": "Search for Um 2 O Car",
+        "notFound": "No Um 2 O Cars found"
+      },
+      "created": "A new Um 2 O Car is created with identifier {{ param }}",
+      "updated": "A Um 2 O Car is updated with identifier {{ param }}",
+      "deleted": "A Um 2 O Car is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Um 2 O Car {{ id }}?"
+      },
+      "detail": {
+        "title": "Um 2 O Car"
+      },
+      "name": "Name",
+      "um2oOwner": "Um 2 O Owner"
+    }
+  }
+}

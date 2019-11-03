@@ -72,7 +72,7 @@ public class Uo2oCitizenDTOMFResource {
         }
         Uo2oCitizenDTOMF result = uo2oCitizenDTOMFService.save(uo2oCitizenDTOMF);
         return ResponseEntity.created(new URI("/api/uo-2-o-citizen-dtomfs/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -93,7 +93,7 @@ public class Uo2oCitizenDTOMFResource {
         }
         Uo2oCitizenDTOMF result = uo2oCitizenDTOMFService.save(uo2oCitizenDTOMF);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, uo2oCitizenDTOMF.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, uo2oCitizenDTOMF.getId().toString()))
             .body(result);
     }
 
@@ -149,7 +149,7 @@ public class Uo2oCitizenDTOMFResource {
     public ResponseEntity<Void> deleteUo2oCitizenDTOMF(@PathVariable Long id) {
         log.debug("REST request to delete Uo2oCitizenDTOMF : {}", id);
         uo2oCitizenDTOMFService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

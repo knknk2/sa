@@ -1,0 +1,24 @@
+{
+  "sampleappApp": {
+    "um2oCar": {
+      "home": {
+        "title": "Um 2 O Cars",
+        "createLabel": "Um 2 O Car erstellen",
+        "createOrEditLabel": "Um 2 O Car erstellen oder bearbeiten",
+        "search": "Suche nach Um 2 O Car",
+        "notFound": "No Um 2 O Cars found"
+      },
+      "created": "Um 2 O Car erstellt mit ID {{ param }}",
+      "updated": "Um 2 O Car aktualisiert mit ID {{ param }}",
+      "deleted": "Um 2 O Car gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Um 2 O Car {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Um 2 O Car"
+      },
+      "name": "Name",
+      "um2oOwner": "Um 2 O Owner"
+    }
+  }
+}

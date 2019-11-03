@@ -1,0 +1,23 @@
+{
+  "sampleappApp": {
+    "uo2oPassportDTOMF": {
+      "home": {
+        "title": "Uo 2 O Passport DTOMFS",
+        "createLabel": "Uo 2 O Passport DTOMF erstellen",
+        "createOrEditLabel": "Uo 2 O Passport DTOMF erstellen oder bearbeiten",
+        "search": "Suche nach Uo 2 O Passport DTOMF",
+        "notFound": "No Uo 2 O Passport DTOMFS found"
+      },
+      "created": "Uo 2 O Passport DTOMF erstellt mit ID {{ param }}",
+      "updated": "Uo 2 O Passport DTOMF aktualisiert mit ID {{ param }}",
+      "deleted": "Uo 2 O Passport DTOMF gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Uo 2 O Passport DTOMF {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Uo 2 O Passport DTOMF"
+      },
+      "name": "Name"
+    }
+  }
+}

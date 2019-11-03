@@ -62,7 +62,7 @@ public class M2mDriverResource {
         }
         M2mDriver result = m2mDriverService.save(m2mDriver);
         return ResponseEntity.created(new URI("/api/m-2-m-drivers/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -83,7 +83,7 @@ public class M2mDriverResource {
         }
         M2mDriver result = m2mDriverService.save(m2mDriver);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, m2mDriver.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, m2mDriver.getId().toString()))
             .body(result);
     }
 
@@ -126,7 +126,7 @@ public class M2mDriverResource {
     public ResponseEntity<Void> deleteM2mDriver(@PathVariable Long id) {
         log.debug("REST request to delete M2mDriver : {}", id);
         m2mDriverService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

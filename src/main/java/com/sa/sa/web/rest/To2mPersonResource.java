@@ -62,7 +62,7 @@ public class To2mPersonResource {
         }
         To2mPerson result = to2mPersonService.save(to2mPerson);
         return ResponseEntity.created(new URI("/api/to-2-m-people/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -83,7 +83,7 @@ public class To2mPersonResource {
         }
         To2mPerson result = to2mPersonService.save(to2mPerson);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, to2mPerson.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, to2mPerson.getId().toString()))
             .body(result);
     }
 
@@ -126,7 +126,7 @@ public class To2mPersonResource {
     public ResponseEntity<Void> deleteTo2mPerson(@PathVariable Long id) {
         log.debug("REST request to delete To2mPerson : {}", id);
         to2mPersonService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

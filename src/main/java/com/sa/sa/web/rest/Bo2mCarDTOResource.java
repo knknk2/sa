@@ -63,7 +63,7 @@ public class Bo2mCarDTOResource {
         }
         Bo2mCarDTO result = bo2mCarDTOService.save(bo2mCarDTO);
         return ResponseEntity.created(new URI("/api/bo-2-m-car-dtos/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -84,7 +84,7 @@ public class Bo2mCarDTOResource {
         }
         Bo2mCarDTO result = bo2mCarDTOService.save(bo2mCarDTO);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, bo2mCarDTO.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, bo2mCarDTO.getId().toString()))
             .body(result);
     }
 
@@ -127,7 +127,7 @@ public class Bo2mCarDTOResource {
     public ResponseEntity<Void> deleteBo2mCarDTO(@PathVariable Long id) {
         log.debug("REST request to delete Bo2mCarDTO : {}", id);
         bo2mCarDTOService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

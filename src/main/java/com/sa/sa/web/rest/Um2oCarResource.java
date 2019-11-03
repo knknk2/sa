@@ -63,7 +63,7 @@ public class Um2oCarResource {
         }
         Um2oCar result = um2oCarService.save(um2oCar);
         return ResponseEntity.created(new URI("/api/um-2-o-cars/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -84,7 +84,7 @@ public class Um2oCarResource {
         }
         Um2oCar result = um2oCarService.save(um2oCar);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, um2oCar.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, um2oCar.getId().toString()))
             .body(result);
     }
 
@@ -127,7 +127,7 @@ public class Um2oCarResource {
     public ResponseEntity<Void> deleteUm2oCar(@PathVariable Long id) {
         log.debug("REST request to delete Um2oCar : {}", id);
         um2oCarService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

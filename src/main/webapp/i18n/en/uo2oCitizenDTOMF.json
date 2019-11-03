@@ -1,0 +1,24 @@
+{
+  "sampleappApp": {
+    "uo2oCitizenDTOMF": {
+      "home": {
+        "title": "Uo 2 O Citizen DTOMFS",
+        "createLabel": "Create a new Uo 2 O Citizen DTOMF",
+        "createOrEditLabel": "Create or edit a Uo 2 O Citizen DTOMF",
+        "search": "Search for Uo 2 O Citizen DTOMF",
+        "notFound": "No Uo 2 O Citizen DTOMFS found"
+      },
+      "created": "A new Uo 2 O Citizen DTOMF is created with identifier {{ param }}",
+      "updated": "A Uo 2 O Citizen DTOMF is updated with identifier {{ param }}",
+      "deleted": "A Uo 2 O Citizen DTOMF is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Uo 2 O Citizen DTOMF {{ id }}?"
+      },
+      "detail": {
+        "title": "Uo 2 O Citizen DTOMF"
+      },
+      "name": "Name",
+      "uo2oPassportDTOMF": "Uo 2 O Passport DTOMF"
+    }
+  }
+}

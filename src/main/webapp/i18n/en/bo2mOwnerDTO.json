@@ -1,0 +1,24 @@
+{
+  "sampleappApp": {
+    "bo2mOwnerDTO": {
+      "home": {
+        "title": "Bo 2 M Owner DTOS",
+        "createLabel": "Create a new Bo 2 M Owner DTO",
+        "createOrEditLabel": "Create or edit a Bo 2 M Owner DTO",
+        "search": "Search for Bo 2 M Owner DTO",
+        "notFound": "No Bo 2 M Owner DTOS found"
+      },
+      "created": "A new Bo 2 M Owner DTO is created with identifier {{ param }}",
+      "updated": "A Bo 2 M Owner DTO is updated with identifier {{ param }}",
+      "deleted": "A Bo 2 M Owner DTO is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bo 2 M Owner DTO {{ id }}?"
+      },
+      "detail": {
+        "title": "Bo 2 M Owner DTO"
+      },
+      "name": "Name",
+      "bo2mCarDTO": "Bo 2 M Car DTO"
+    }
+  }
+}

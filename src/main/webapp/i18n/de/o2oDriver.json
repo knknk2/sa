@@ -1,0 +1,24 @@
+{
+  "sampleappApp": {
+    "o2oDriver": {
+      "home": {
+        "title": "O 2 O Drivers",
+        "createLabel": "O 2 O Driver erstellen",
+        "createOrEditLabel": "O 2 O Driver erstellen oder bearbeiten",
+        "search": "Suche nach O 2 O Driver",
+        "notFound": "No O 2 O Drivers found"
+      },
+      "created": "O 2 O Driver erstellt mit ID {{ param }}",
+      "updated": "O 2 O Driver aktualisiert mit ID {{ param }}",
+      "deleted": "O 2 O Driver gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll O 2 O Driver {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "O 2 O Driver"
+      },
+      "name": "Name",
+      "o2oCar": "O 2 O Car"
+    }
+  }
+}

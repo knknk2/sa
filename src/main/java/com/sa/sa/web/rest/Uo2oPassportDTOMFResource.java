@@ -67,7 +67,7 @@ public class Uo2oPassportDTOMFResource {
         }
         Uo2oPassportDTOMF result = uo2oPassportDTOMFService.save(uo2oPassportDTOMF);
         return ResponseEntity.created(new URI("/api/uo-2-o-passport-dtomfs/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -88,7 +88,7 @@ public class Uo2oPassportDTOMFResource {
         }
         Uo2oPassportDTOMF result = uo2oPassportDTOMFService.save(uo2oPassportDTOMF);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, uo2oPassportDTOMF.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, uo2oPassportDTOMF.getId().toString()))
             .body(result);
     }
 
@@ -144,7 +144,7 @@ public class Uo2oPassportDTOMFResource {
     public ResponseEntity<Void> deleteUo2oPassportDTOMF(@PathVariable Long id) {
         log.debug("REST request to delete Uo2oPassportDTOMF : {}", id);
         uo2oPassportDTOMFService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

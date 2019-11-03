@@ -1,0 +1,25 @@
+{
+  "sampleappApp": {
+    "to2mPerson": {
+      "home": {
+        "title": "To 2 M People",
+        "createLabel": "To 2 M Person erstellen",
+        "createOrEditLabel": "To 2 M Person erstellen oder bearbeiten",
+        "search": "Suche nach To 2 M Person",
+        "notFound": "No To 2 M People found"
+      },
+      "created": "To 2 M Person erstellt mit ID {{ param }}",
+      "updated": "To 2 M Person aktualisiert mit ID {{ param }}",
+      "deleted": "To 2 M Person gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll To 2 M Person {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "To 2 M Person"
+      },
+      "name": "Name",
+      "to2mOwnedCar": "To 2 M Owned Car",
+      "to2mDrivedCar": "To 2 M Drived Car"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "sampleappApp": {
+    "o2oCar": {
+      "home": {
+        "title": "O 2 O Cars",
+        "createLabel": "O 2 O Car erstellen",
+        "createOrEditLabel": "O 2 O Car erstellen oder bearbeiten",
+        "search": "Suche nach O 2 O Car",
+        "notFound": "No O 2 O Cars found"
+      },
+      "created": "O 2 O Car erstellt mit ID {{ param }}",
+      "updated": "O 2 O Car aktualisiert mit ID {{ param }}",
+      "deleted": "O 2 O Car gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll O 2 O Car {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "O 2 O Car"
+      },
+      "name": "Name",
+      "o2oDriver": "O 2 O Driver"
+    }
+  }
+}

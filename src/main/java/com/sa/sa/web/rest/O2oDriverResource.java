@@ -62,7 +62,7 @@ public class O2oDriverResource {
         }
         O2oDriver result = o2oDriverService.save(o2oDriver);
         return ResponseEntity.created(new URI("/api/o-2-o-drivers/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -83,7 +83,7 @@ public class O2oDriverResource {
         }
         O2oDriver result = o2oDriverService.save(o2oDriver);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, o2oDriver.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, o2oDriver.getId().toString()))
             .body(result);
     }
 
@@ -132,7 +132,7 @@ public class O2oDriverResource {
     public ResponseEntity<Void> deleteO2oDriver(@PathVariable Long id) {
         log.debug("REST request to delete O2oDriver : {}", id);
         o2oDriverService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

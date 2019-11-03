@@ -1,0 +1,23 @@
+{
+  "sampleappApp": {
+    "um2oOwner": {
+      "home": {
+        "title": "Um 2 O Owners",
+        "createLabel": "Create a new Um 2 O Owner",
+        "createOrEditLabel": "Create or edit a Um 2 O Owner",
+        "search": "Search for Um 2 O Owner",
+        "notFound": "No Um 2 O Owners found"
+      },
+      "created": "A new Um 2 O Owner is created with identifier {{ param }}",
+      "updated": "A Um 2 O Owner is updated with identifier {{ param }}",
+      "deleted": "A Um 2 O Owner is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Um 2 O Owner {{ id }}?"
+      },
+      "detail": {
+        "title": "Um 2 O Owner"
+      },
+      "name": "Name"
+    }
+  }
+}

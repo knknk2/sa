@@ -1,0 +1,12 @@
+{
+  "sampleappApp": {
+    "Enum1": {
+      "null": "",
+      "VALID": "VALID",
+      "INVALID": "INVALID",
+      "CANCELED": "CANCELED",
+      "INACTIVE": "INACTIVE",
+      "ACTIVE": "ACTIVE"
+    }
+  }
+}

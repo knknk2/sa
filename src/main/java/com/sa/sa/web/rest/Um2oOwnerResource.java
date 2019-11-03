@@ -62,7 +62,7 @@ public class Um2oOwnerResource {
         }
         Um2oOwner result = um2oOwnerService.save(um2oOwner);
         return ResponseEntity.created(new URI("/api/um-2-o-owners/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -83,7 +83,7 @@ public class Um2oOwnerResource {
         }
         Um2oOwner result = um2oOwnerService.save(um2oOwner);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, um2oOwner.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, um2oOwner.getId().toString()))
             .body(result);
     }
 
@@ -126,7 +126,7 @@ public class Um2oOwnerResource {
     public ResponseEntity<Void> deleteUm2oOwner(@PathVariable Long id) {
         log.debug("REST request to delete Um2oOwner : {}", id);
         um2oOwnerService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

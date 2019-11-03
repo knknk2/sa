@@ -67,7 +67,7 @@ public class To2mCarInfResource {
         }
         To2mCarInf result = to2mCarInfService.save(to2mCarInf);
         return ResponseEntity.created(new URI("/api/to-2-m-car-infs/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -88,7 +88,7 @@ public class To2mCarInfResource {
         }
         To2mCarInf result = to2mCarInfService.save(to2mCarInf);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, to2mCarInf.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, to2mCarInf.getId().toString()))
             .body(result);
     }
 
@@ -144,7 +144,7 @@ public class To2mCarInfResource {
     public ResponseEntity<Void> deleteTo2mCarInf(@PathVariable Long id) {
         log.debug("REST request to delete To2mCarInf : {}", id);
         to2mCarInfService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

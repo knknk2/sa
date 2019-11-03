@@ -3,6 +3,9 @@ package com.sa.sa;
 import com.sa.sa.config.ApplicationProperties;
 import com.sa.sa.config.DefaultProfileUtil;
 
+import com.sa.sa.service.SampleappKafkaConsumer;
+import com.sa.sa.service.SampleappKafkaProducer;
+import org.springframework.context.ConfigurableApplicationContext;
 import io.github.jhipster.config.JHipsterConstants;
 
 import org.apache.commons.lang3.StringUtils;
@@ -60,7 +63,10 @@ public class SampleappApp implements InitializingBean {
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(SampleappApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
-        Environment env = app.run(args).getEnvironment();
+        ConfigurableApplicationContext applicationContext = app.run(args);
+        applicationContext.getBean(SampleappKafkaProducer.class).init();
+        applicationContext.getBean(SampleappKafkaConsumer.class).start();
+        Environment env = applicationContext.getEnvironment();
         logApplicationStartup(env);
     }
 

@@ -67,7 +67,7 @@ public class O2oCarResource {
         }
         O2oCar result = o2oCarService.save(o2oCar);
         return ResponseEntity.created(new URI("/api/o-2-o-cars/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -88,7 +88,7 @@ public class O2oCarResource {
         }
         O2oCar result = o2oCarService.save(o2oCar);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, o2oCar.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, o2oCar.getId().toString()))
             .body(result);
     }
 
@@ -131,7 +131,7 @@ public class O2oCarResource {
     public ResponseEntity<Void> deleteO2oCar(@PathVariable Long id) {
         log.debug("REST request to delete O2oCar : {}", id);
         o2oCarService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

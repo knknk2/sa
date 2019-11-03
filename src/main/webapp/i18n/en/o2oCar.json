@@ -1,0 +1,24 @@
+{
+  "sampleappApp": {
+    "o2oCar": {
+      "home": {
+        "title": "O 2 O Cars",
+        "createLabel": "Create a new O 2 O Car",
+        "createOrEditLabel": "Create or edit a O 2 O Car",
+        "search": "Search for O 2 O Car",
+        "notFound": "No O 2 O Cars found"
+      },
+      "created": "A new O 2 O Car is created with identifier {{ param }}",
+      "updated": "A O 2 O Car is updated with identifier {{ param }}",
+      "deleted": "A O 2 O Car is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete O 2 O Car {{ id }}?"
+      },
+      "detail": {
+        "title": "O 2 O Car"
+      },
+      "name": "Name",
+      "o2oDriver": "O 2 O Driver"
+    }
+  }
+}

@@ -63,7 +63,7 @@ public class Bo2mCarResource {
         }
         Bo2mCar result = bo2mCarService.save(bo2mCar);
         return ResponseEntity.created(new URI("/api/bo-2-m-cars/" + result.getId()))
-            .headers(HeaderUtil.createEntityCreationAlert(applicationName, false, ENTITY_NAME, result.getId().toString()))
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, result.getId().toString()))
             .body(result);
     }
 
@@ -84,7 +84,7 @@ public class Bo2mCarResource {
         }
         Bo2mCar result = bo2mCarService.save(bo2mCar);
         return ResponseEntity.ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, bo2mCar.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, bo2mCar.getId().toString()))
             .body(result);
     }
 
@@ -127,7 +127,7 @@ public class Bo2mCarResource {
     public ResponseEntity<Void> deleteBo2mCar(@PathVariable Long id) {
         log.debug("REST request to delete Bo2mCar : {}", id);
         bo2mCarService.delete(id);
-        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
+        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();
     }
 
     /**

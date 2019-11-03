@@ -1,0 +1,25 @@
+{
+  "sampleappApp": {
+    "to2mCar": {
+      "home": {
+        "title": "To 2 M Cars",
+        "createLabel": "Create a new To 2 M Car",
+        "createOrEditLabel": "Create or edit a To 2 M Car",
+        "search": "Search for To 2 M Car",
+        "notFound": "No To 2 M Cars found"
+      },
+      "created": "A new To 2 M Car is created with identifier {{ param }}",
+      "updated": "A To 2 M Car is updated with identifier {{ param }}",
+      "deleted": "A To 2 M Car is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete To 2 M Car {{ id }}?"
+      },
+      "detail": {
+        "title": "To 2 M Car"
+      },
+      "name": "Name",
+      "to2mOwner": "To 2 M Owner",
+      "to2mDriver": "To 2 M Driver"
+    }
+  }
+}
