@@ -177,7 +177,7 @@ public class To2mCarInfResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(to2mCarInf.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
     
     @Test
@@ -191,7 +191,7 @@ public class To2mCarInfResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(to2mCarInf.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -205,6 +205,19 @@ public class To2mCarInfResourceIT {
 
         // Get all the to2mCarInfList where name equals to UPDATED_NAME
         defaultTo2mCarInfShouldNotBeFound("name.equals=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllTo2mCarInfsByNameIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        to2mCarInfRepository.saveAndFlush(to2mCarInf);
+
+        // Get all the to2mCarInfList where name not equals to DEFAULT_NAME
+        defaultTo2mCarInfShouldNotBeFound("name.notEquals=" + DEFAULT_NAME);
+
+        // Get all the to2mCarInfList where name not equals to UPDATED_NAME
+        defaultTo2mCarInfShouldBeFound("name.notEquals=" + UPDATED_NAME);
     }
 
     @Test
@@ -232,6 +245,32 @@ public class To2mCarInfResourceIT {
         // Get all the to2mCarInfList where name is null
         defaultTo2mCarInfShouldNotBeFound("name.specified=false");
     }
+                @Test
+    @Transactional
+    public void getAllTo2mCarInfsByNameContainsSomething() throws Exception {
+        // Initialize the database
+        to2mCarInfRepository.saveAndFlush(to2mCarInf);
+
+        // Get all the to2mCarInfList where name contains DEFAULT_NAME
+        defaultTo2mCarInfShouldBeFound("name.contains=" + DEFAULT_NAME);
+
+        // Get all the to2mCarInfList where name contains UPDATED_NAME
+        defaultTo2mCarInfShouldNotBeFound("name.contains=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllTo2mCarInfsByNameNotContainsSomething() throws Exception {
+        // Initialize the database
+        to2mCarInfRepository.saveAndFlush(to2mCarInf);
+
+        // Get all the to2mCarInfList where name does not contain DEFAULT_NAME
+        defaultTo2mCarInfShouldNotBeFound("name.doesNotContain=" + DEFAULT_NAME);
+
+        // Get all the to2mCarInfList where name does not contain UPDATED_NAME
+        defaultTo2mCarInfShouldBeFound("name.doesNotContain=" + UPDATED_NAME);
+    }
+
 
     @Test
     @Transactional

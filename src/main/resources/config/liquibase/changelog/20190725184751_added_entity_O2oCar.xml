@@ -42,7 +42,6 @@
                   tableName="o2o_car">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
-            <column name="o2o_driver_id" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
         </loadData>
     </changeSet>

@@ -176,7 +176,7 @@ public class Uo2oPassportDTOMFResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(uo2oPassportDTOMF.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
     
     @Test
@@ -190,7 +190,7 @@ public class Uo2oPassportDTOMFResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(uo2oPassportDTOMF.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -204,6 +204,19 @@ public class Uo2oPassportDTOMFResourceIT {
 
         // Get all the uo2oPassportDTOMFList where name equals to UPDATED_NAME
         defaultUo2oPassportDTOMFShouldNotBeFound("name.equals=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllUo2oPassportDTOMFSByNameIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        uo2oPassportDTOMFRepository.saveAndFlush(uo2oPassportDTOMF);
+
+        // Get all the uo2oPassportDTOMFList where name not equals to DEFAULT_NAME
+        defaultUo2oPassportDTOMFShouldNotBeFound("name.notEquals=" + DEFAULT_NAME);
+
+        // Get all the uo2oPassportDTOMFList where name not equals to UPDATED_NAME
+        defaultUo2oPassportDTOMFShouldBeFound("name.notEquals=" + UPDATED_NAME);
     }
 
     @Test
@@ -231,6 +244,32 @@ public class Uo2oPassportDTOMFResourceIT {
         // Get all the uo2oPassportDTOMFList where name is null
         defaultUo2oPassportDTOMFShouldNotBeFound("name.specified=false");
     }
+                @Test
+    @Transactional
+    public void getAllUo2oPassportDTOMFSByNameContainsSomething() throws Exception {
+        // Initialize the database
+        uo2oPassportDTOMFRepository.saveAndFlush(uo2oPassportDTOMF);
+
+        // Get all the uo2oPassportDTOMFList where name contains DEFAULT_NAME
+        defaultUo2oPassportDTOMFShouldBeFound("name.contains=" + DEFAULT_NAME);
+
+        // Get all the uo2oPassportDTOMFList where name contains UPDATED_NAME
+        defaultUo2oPassportDTOMFShouldNotBeFound("name.contains=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllUo2oPassportDTOMFSByNameNotContainsSomething() throws Exception {
+        // Initialize the database
+        uo2oPassportDTOMFRepository.saveAndFlush(uo2oPassportDTOMF);
+
+        // Get all the uo2oPassportDTOMFList where name does not contain DEFAULT_NAME
+        defaultUo2oPassportDTOMFShouldNotBeFound("name.doesNotContain=" + DEFAULT_NAME);
+
+        // Get all the uo2oPassportDTOMFList where name does not contain UPDATED_NAME
+        defaultUo2oPassportDTOMFShouldBeFound("name.doesNotContain=" + UPDATED_NAME);
+    }
+
     /**
      * Executes the search, and checks that the default entity is returned.
      */

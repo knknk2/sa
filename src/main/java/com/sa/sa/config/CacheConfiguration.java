@@ -83,4 +83,5 @@ public class CacheConfiguration {
         }
         cm.createCache(cacheName, jcacheConfiguration);
     }
+
 }

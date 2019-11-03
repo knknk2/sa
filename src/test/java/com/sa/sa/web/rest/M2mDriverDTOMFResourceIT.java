@@ -177,7 +177,7 @@ public class M2mDriverDTOMFResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(m2mDriverDTOMF.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
     
     @Test
@@ -191,7 +191,7 @@ public class M2mDriverDTOMFResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(m2mDriverDTOMF.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -205,6 +205,19 @@ public class M2mDriverDTOMFResourceIT {
 
         // Get all the m2mDriverDTOMFList where name equals to UPDATED_NAME
         defaultM2mDriverDTOMFShouldNotBeFound("name.equals=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllM2mDriverDTOMFSByNameIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        m2mDriverDTOMFRepository.saveAndFlush(m2mDriverDTOMF);
+
+        // Get all the m2mDriverDTOMFList where name not equals to DEFAULT_NAME
+        defaultM2mDriverDTOMFShouldNotBeFound("name.notEquals=" + DEFAULT_NAME);
+
+        // Get all the m2mDriverDTOMFList where name not equals to UPDATED_NAME
+        defaultM2mDriverDTOMFShouldBeFound("name.notEquals=" + UPDATED_NAME);
     }
 
     @Test
@@ -232,6 +245,32 @@ public class M2mDriverDTOMFResourceIT {
         // Get all the m2mDriverDTOMFList where name is null
         defaultM2mDriverDTOMFShouldNotBeFound("name.specified=false");
     }
+                @Test
+    @Transactional
+    public void getAllM2mDriverDTOMFSByNameContainsSomething() throws Exception {
+        // Initialize the database
+        m2mDriverDTOMFRepository.saveAndFlush(m2mDriverDTOMF);
+
+        // Get all the m2mDriverDTOMFList where name contains DEFAULT_NAME
+        defaultM2mDriverDTOMFShouldBeFound("name.contains=" + DEFAULT_NAME);
+
+        // Get all the m2mDriverDTOMFList where name contains UPDATED_NAME
+        defaultM2mDriverDTOMFShouldNotBeFound("name.contains=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllM2mDriverDTOMFSByNameNotContainsSomething() throws Exception {
+        // Initialize the database
+        m2mDriverDTOMFRepository.saveAndFlush(m2mDriverDTOMF);
+
+        // Get all the m2mDriverDTOMFList where name does not contain DEFAULT_NAME
+        defaultM2mDriverDTOMFShouldNotBeFound("name.doesNotContain=" + DEFAULT_NAME);
+
+        // Get all the m2mDriverDTOMFList where name does not contain UPDATED_NAME
+        defaultM2mDriverDTOMFShouldBeFound("name.doesNotContain=" + UPDATED_NAME);
+    }
+
 
     @Test
     @Transactional
