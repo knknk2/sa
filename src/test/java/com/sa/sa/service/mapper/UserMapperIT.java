@@ -1,6 +1,5 @@
 package com.sa.sa.service.mapper;
 
-
 import com.sa.sa.SampleappApp;
 import com.sa.sa.domain.User;
 import com.sa.sa.service.dto.UserDTO;

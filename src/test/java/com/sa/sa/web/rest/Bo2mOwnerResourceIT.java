@@ -171,7 +171,7 @@ public class Bo2mOwnerResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(bo2mOwner.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
     
     @Test
@@ -185,7 +185,7 @@ public class Bo2mOwnerResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(bo2mOwner.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test

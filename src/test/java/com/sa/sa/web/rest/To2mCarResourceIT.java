@@ -177,7 +177,7 @@ public class To2mCarResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(to2mCar.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
     
     @Test
@@ -191,7 +191,7 @@ public class To2mCarResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(to2mCar.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -205,6 +205,19 @@ public class To2mCarResourceIT {
 
         // Get all the to2mCarList where name equals to UPDATED_NAME
         defaultTo2mCarShouldNotBeFound("name.equals=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllTo2mCarsByNameIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        to2mCarRepository.saveAndFlush(to2mCar);
+
+        // Get all the to2mCarList where name not equals to DEFAULT_NAME
+        defaultTo2mCarShouldNotBeFound("name.notEquals=" + DEFAULT_NAME);
+
+        // Get all the to2mCarList where name not equals to UPDATED_NAME
+        defaultTo2mCarShouldBeFound("name.notEquals=" + UPDATED_NAME);
     }
 
     @Test
@@ -232,6 +245,32 @@ public class To2mCarResourceIT {
         // Get all the to2mCarList where name is null
         defaultTo2mCarShouldNotBeFound("name.specified=false");
     }
+                @Test
+    @Transactional
+    public void getAllTo2mCarsByNameContainsSomething() throws Exception {
+        // Initialize the database
+        to2mCarRepository.saveAndFlush(to2mCar);
+
+        // Get all the to2mCarList where name contains DEFAULT_NAME
+        defaultTo2mCarShouldBeFound("name.contains=" + DEFAULT_NAME);
+
+        // Get all the to2mCarList where name contains UPDATED_NAME
+        defaultTo2mCarShouldNotBeFound("name.contains=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllTo2mCarsByNameNotContainsSomething() throws Exception {
+        // Initialize the database
+        to2mCarRepository.saveAndFlush(to2mCar);
+
+        // Get all the to2mCarList where name does not contain DEFAULT_NAME
+        defaultTo2mCarShouldNotBeFound("name.doesNotContain=" + DEFAULT_NAME);
+
+        // Get all the to2mCarList where name does not contain UPDATED_NAME
+        defaultTo2mCarShouldBeFound("name.doesNotContain=" + UPDATED_NAME);
+    }
+
 
     @Test
     @Transactional

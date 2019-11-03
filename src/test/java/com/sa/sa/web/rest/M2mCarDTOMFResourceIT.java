@@ -185,7 +185,7 @@ public class M2mCarDTOMFResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(m2mCarDTOMF.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
     
     @SuppressWarnings({"unchecked"})
@@ -232,7 +232,7 @@ public class M2mCarDTOMFResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(m2mCarDTOMF.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -246,6 +246,19 @@ public class M2mCarDTOMFResourceIT {
 
         // Get all the m2mCarDTOMFList where name equals to UPDATED_NAME
         defaultM2mCarDTOMFShouldNotBeFound("name.equals=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllM2mCarDTOMFSByNameIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        m2mCarDTOMFRepository.saveAndFlush(m2mCarDTOMF);
+
+        // Get all the m2mCarDTOMFList where name not equals to DEFAULT_NAME
+        defaultM2mCarDTOMFShouldNotBeFound("name.notEquals=" + DEFAULT_NAME);
+
+        // Get all the m2mCarDTOMFList where name not equals to UPDATED_NAME
+        defaultM2mCarDTOMFShouldBeFound("name.notEquals=" + UPDATED_NAME);
     }
 
     @Test
@@ -273,6 +286,32 @@ public class M2mCarDTOMFResourceIT {
         // Get all the m2mCarDTOMFList where name is null
         defaultM2mCarDTOMFShouldNotBeFound("name.specified=false");
     }
+                @Test
+    @Transactional
+    public void getAllM2mCarDTOMFSByNameContainsSomething() throws Exception {
+        // Initialize the database
+        m2mCarDTOMFRepository.saveAndFlush(m2mCarDTOMF);
+
+        // Get all the m2mCarDTOMFList where name contains DEFAULT_NAME
+        defaultM2mCarDTOMFShouldBeFound("name.contains=" + DEFAULT_NAME);
+
+        // Get all the m2mCarDTOMFList where name contains UPDATED_NAME
+        defaultM2mCarDTOMFShouldNotBeFound("name.contains=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllM2mCarDTOMFSByNameNotContainsSomething() throws Exception {
+        // Initialize the database
+        m2mCarDTOMFRepository.saveAndFlush(m2mCarDTOMF);
+
+        // Get all the m2mCarDTOMFList where name does not contain DEFAULT_NAME
+        defaultM2mCarDTOMFShouldNotBeFound("name.doesNotContain=" + DEFAULT_NAME);
+
+        // Get all the m2mCarDTOMFList where name does not contain UPDATED_NAME
+        defaultM2mCarDTOMFShouldBeFound("name.doesNotContain=" + UPDATED_NAME);
+    }
+
 
     @Test
     @Transactional

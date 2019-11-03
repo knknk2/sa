@@ -42,7 +42,6 @@
                   tableName="uo2o_citizen">
             <column name="id" type="numeric"/>
             <column name="name" type="string"/>
-            <column name="uo2o_passport_id" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here, do not remove-->
         </loadData>
     </changeSet>

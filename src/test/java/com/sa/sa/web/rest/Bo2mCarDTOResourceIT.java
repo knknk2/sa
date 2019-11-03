@@ -48,7 +48,6 @@ public class Bo2mCarDTOResourceIT {
 
     private static final Instant DEFAULT_CREATED_AT = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_CREATED_AT = Instant.now().truncatedTo(ChronoUnit.MILLIS);
-    private static final Instant SMALLER_CREATED_AT = Instant.ofEpochMilli(-1L);
 
     @Autowired
     private Bo2mCarDTORepository bo2mCarDTORepository;
@@ -201,7 +200,7 @@ public class Bo2mCarDTOResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(bo2mCarDTO.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)))
             .andExpect(jsonPath("$.[*].createdAt").value(hasItem(DEFAULT_CREATED_AT.toString())));
     }
     
@@ -216,7 +215,7 @@ public class Bo2mCarDTOResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(bo2mCarDTO.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME))
             .andExpect(jsonPath("$.createdAt").value(DEFAULT_CREATED_AT.toString()));
     }
 

@@ -239,7 +239,7 @@ public class Uo2oCitizenDTOMFResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(uo2oCitizenDTOMF.getId().intValue())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
     
     @Test
@@ -253,7 +253,7 @@ public class Uo2oCitizenDTOMFResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(uo2oCitizenDTOMF.getId().intValue()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME));
     }
 
     @Test
@@ -267,6 +267,19 @@ public class Uo2oCitizenDTOMFResourceIT {
 
         // Get all the uo2oCitizenDTOMFList where name equals to UPDATED_NAME
         defaultUo2oCitizenDTOMFShouldNotBeFound("name.equals=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllUo2oCitizenDTOMFSByNameIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        uo2oCitizenDTOMFRepository.saveAndFlush(uo2oCitizenDTOMF);
+
+        // Get all the uo2oCitizenDTOMFList where name not equals to DEFAULT_NAME
+        defaultUo2oCitizenDTOMFShouldNotBeFound("name.notEquals=" + DEFAULT_NAME);
+
+        // Get all the uo2oCitizenDTOMFList where name not equals to UPDATED_NAME
+        defaultUo2oCitizenDTOMFShouldBeFound("name.notEquals=" + UPDATED_NAME);
     }
 
     @Test
@@ -294,6 +307,32 @@ public class Uo2oCitizenDTOMFResourceIT {
         // Get all the uo2oCitizenDTOMFList where name is null
         defaultUo2oCitizenDTOMFShouldNotBeFound("name.specified=false");
     }
+                @Test
+    @Transactional
+    public void getAllUo2oCitizenDTOMFSByNameContainsSomething() throws Exception {
+        // Initialize the database
+        uo2oCitizenDTOMFRepository.saveAndFlush(uo2oCitizenDTOMF);
+
+        // Get all the uo2oCitizenDTOMFList where name contains DEFAULT_NAME
+        defaultUo2oCitizenDTOMFShouldBeFound("name.contains=" + DEFAULT_NAME);
+
+        // Get all the uo2oCitizenDTOMFList where name contains UPDATED_NAME
+        defaultUo2oCitizenDTOMFShouldNotBeFound("name.contains=" + UPDATED_NAME);
+    }
+
+    @Test
+    @Transactional
+    public void getAllUo2oCitizenDTOMFSByNameNotContainsSomething() throws Exception {
+        // Initialize the database
+        uo2oCitizenDTOMFRepository.saveAndFlush(uo2oCitizenDTOMF);
+
+        // Get all the uo2oCitizenDTOMFList where name does not contain DEFAULT_NAME
+        defaultUo2oCitizenDTOMFShouldNotBeFound("name.doesNotContain=" + DEFAULT_NAME);
+
+        // Get all the uo2oCitizenDTOMFList where name does not contain UPDATED_NAME
+        defaultUo2oCitizenDTOMFShouldBeFound("name.doesNotContain=" + UPDATED_NAME);
+    }
+
 
     @Test
     @Transactional

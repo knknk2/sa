@@ -85,7 +85,6 @@ public class FieldsResourceIT {
 
     private static final Instant DEFAULT_DATE_2 = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DATE_2 = Instant.now().truncatedTo(ChronoUnit.MILLIS);
-    private static final Instant SMALLER_DATE_2 = Instant.ofEpochMilli(-1L);
 
     private static final ZonedDateTime DEFAULT_DATE_3 = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_DATE_3 = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
@@ -551,7 +550,7 @@ public class FieldsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(fields.getId().intValue())))
-            .andExpect(jsonPath("$.[*].str").value(hasItem(DEFAULT_STR.toString())))
+            .andExpect(jsonPath("$.[*].str").value(hasItem(DEFAULT_STR)))
             .andExpect(jsonPath("$.[*].num1").value(hasItem(DEFAULT_NUM_1)))
             .andExpect(jsonPath("$.[*].num2").value(hasItem(DEFAULT_NUM_2.intValue())))
             .andExpect(jsonPath("$.[*].num3").value(hasItem(DEFAULT_NUM_3.doubleValue())))
@@ -582,7 +581,7 @@ public class FieldsResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(fields.getId().intValue()))
-            .andExpect(jsonPath("$.str").value(DEFAULT_STR.toString()))
+            .andExpect(jsonPath("$.str").value(DEFAULT_STR))
             .andExpect(jsonPath("$.num1").value(DEFAULT_NUM_1))
             .andExpect(jsonPath("$.num2").value(DEFAULT_NUM_2.intValue()))
             .andExpect(jsonPath("$.num3").value(DEFAULT_NUM_3.doubleValue()))
@@ -617,6 +616,19 @@ public class FieldsResourceIT {
 
     @Test
     @Transactional
+    public void getAllFieldsByStrIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where str not equals to DEFAULT_STR
+        defaultFieldsShouldNotBeFound("str.notEquals=" + DEFAULT_STR);
+
+        // Get all the fieldsList where str not equals to UPDATED_STR
+        defaultFieldsShouldBeFound("str.notEquals=" + UPDATED_STR);
+    }
+
+    @Test
+    @Transactional
     public void getAllFieldsByStrIsInShouldWork() throws Exception {
         // Initialize the database
         fieldsRepository.saveAndFlush(fields);
@@ -640,6 +652,32 @@ public class FieldsResourceIT {
         // Get all the fieldsList where str is null
         defaultFieldsShouldNotBeFound("str.specified=false");
     }
+                @Test
+    @Transactional
+    public void getAllFieldsByStrContainsSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where str contains DEFAULT_STR
+        defaultFieldsShouldBeFound("str.contains=" + DEFAULT_STR);
+
+        // Get all the fieldsList where str contains UPDATED_STR
+        defaultFieldsShouldNotBeFound("str.contains=" + UPDATED_STR);
+    }
+
+    @Test
+    @Transactional
+    public void getAllFieldsByStrNotContainsSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where str does not contain DEFAULT_STR
+        defaultFieldsShouldNotBeFound("str.doesNotContain=" + DEFAULT_STR);
+
+        // Get all the fieldsList where str does not contain UPDATED_STR
+        defaultFieldsShouldBeFound("str.doesNotContain=" + UPDATED_STR);
+    }
+
 
     @Test
     @Transactional
@@ -652,6 +690,19 @@ public class FieldsResourceIT {
 
         // Get all the fieldsList where num1 equals to UPDATED_NUM_1
         defaultFieldsShouldNotBeFound("num1.equals=" + UPDATED_NUM_1);
+    }
+
+    @Test
+    @Transactional
+    public void getAllFieldsByNum1IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where num1 not equals to DEFAULT_NUM_1
+        defaultFieldsShouldNotBeFound("num1.notEquals=" + DEFAULT_NUM_1);
+
+        // Get all the fieldsList where num1 not equals to UPDATED_NUM_1
+        defaultFieldsShouldBeFound("num1.notEquals=" + UPDATED_NUM_1);
     }
 
     @Test
@@ -748,6 +799,19 @@ public class FieldsResourceIT {
 
     @Test
     @Transactional
+    public void getAllFieldsByNum2IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where num2 not equals to DEFAULT_NUM_2
+        defaultFieldsShouldNotBeFound("num2.notEquals=" + DEFAULT_NUM_2);
+
+        // Get all the fieldsList where num2 not equals to UPDATED_NUM_2
+        defaultFieldsShouldBeFound("num2.notEquals=" + UPDATED_NUM_2);
+    }
+
+    @Test
+    @Transactional
     public void getAllFieldsByNum2IsInShouldWork() throws Exception {
         // Initialize the database
         fieldsRepository.saveAndFlush(fields);
@@ -836,6 +900,19 @@ public class FieldsResourceIT {
 
         // Get all the fieldsList where num3 equals to UPDATED_NUM_3
         defaultFieldsShouldNotBeFound("num3.equals=" + UPDATED_NUM_3);
+    }
+
+    @Test
+    @Transactional
+    public void getAllFieldsByNum3IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where num3 not equals to DEFAULT_NUM_3
+        defaultFieldsShouldNotBeFound("num3.notEquals=" + DEFAULT_NUM_3);
+
+        // Get all the fieldsList where num3 not equals to UPDATED_NUM_3
+        defaultFieldsShouldBeFound("num3.notEquals=" + UPDATED_NUM_3);
     }
 
     @Test
@@ -932,6 +1009,19 @@ public class FieldsResourceIT {
 
     @Test
     @Transactional
+    public void getAllFieldsByNum4IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where num4 not equals to DEFAULT_NUM_4
+        defaultFieldsShouldNotBeFound("num4.notEquals=" + DEFAULT_NUM_4);
+
+        // Get all the fieldsList where num4 not equals to UPDATED_NUM_4
+        defaultFieldsShouldBeFound("num4.notEquals=" + UPDATED_NUM_4);
+    }
+
+    @Test
+    @Transactional
     public void getAllFieldsByNum4IsInShouldWork() throws Exception {
         // Initialize the database
         fieldsRepository.saveAndFlush(fields);
@@ -1020,6 +1110,19 @@ public class FieldsResourceIT {
 
         // Get all the fieldsList where num5 equals to UPDATED_NUM_5
         defaultFieldsShouldNotBeFound("num5.equals=" + UPDATED_NUM_5);
+    }
+
+    @Test
+    @Transactional
+    public void getAllFieldsByNum5IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where num5 not equals to DEFAULT_NUM_5
+        defaultFieldsShouldNotBeFound("num5.notEquals=" + DEFAULT_NUM_5);
+
+        // Get all the fieldsList where num5 not equals to UPDATED_NUM_5
+        defaultFieldsShouldBeFound("num5.notEquals=" + UPDATED_NUM_5);
     }
 
     @Test
@@ -1116,6 +1219,19 @@ public class FieldsResourceIT {
 
     @Test
     @Transactional
+    public void getAllFieldsByDate1IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where date1 not equals to DEFAULT_DATE_1
+        defaultFieldsShouldNotBeFound("date1.notEquals=" + DEFAULT_DATE_1);
+
+        // Get all the fieldsList where date1 not equals to UPDATED_DATE_1
+        defaultFieldsShouldBeFound("date1.notEquals=" + UPDATED_DATE_1);
+    }
+
+    @Test
+    @Transactional
     public void getAllFieldsByDate1IsInShouldWork() throws Exception {
         // Initialize the database
         fieldsRepository.saveAndFlush(fields);
@@ -1208,6 +1324,19 @@ public class FieldsResourceIT {
 
     @Test
     @Transactional
+    public void getAllFieldsByDate2IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where date2 not equals to DEFAULT_DATE_2
+        defaultFieldsShouldNotBeFound("date2.notEquals=" + DEFAULT_DATE_2);
+
+        // Get all the fieldsList where date2 not equals to UPDATED_DATE_2
+        defaultFieldsShouldBeFound("date2.notEquals=" + UPDATED_DATE_2);
+    }
+
+    @Test
+    @Transactional
     public void getAllFieldsByDate2IsInShouldWork() throws Exception {
         // Initialize the database
         fieldsRepository.saveAndFlush(fields);
@@ -1243,6 +1372,19 @@ public class FieldsResourceIT {
 
         // Get all the fieldsList where date3 equals to UPDATED_DATE_3
         defaultFieldsShouldNotBeFound("date3.equals=" + UPDATED_DATE_3);
+    }
+
+    @Test
+    @Transactional
+    public void getAllFieldsByDate3IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where date3 not equals to DEFAULT_DATE_3
+        defaultFieldsShouldNotBeFound("date3.notEquals=" + DEFAULT_DATE_3);
+
+        // Get all the fieldsList where date3 not equals to UPDATED_DATE_3
+        defaultFieldsShouldBeFound("date3.notEquals=" + UPDATED_DATE_3);
     }
 
     @Test
@@ -1339,6 +1481,19 @@ public class FieldsResourceIT {
 
     @Test
     @Transactional
+    public void getAllFieldsByDate4IsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where date4 not equals to DEFAULT_DATE_4
+        defaultFieldsShouldNotBeFound("date4.notEquals=" + DEFAULT_DATE_4);
+
+        // Get all the fieldsList where date4 not equals to UPDATED_DATE_4
+        defaultFieldsShouldBeFound("date4.notEquals=" + UPDATED_DATE_4);
+    }
+
+    @Test
+    @Transactional
     public void getAllFieldsByDate4IsInShouldWork() throws Exception {
         // Initialize the database
         fieldsRepository.saveAndFlush(fields);
@@ -1431,6 +1586,19 @@ public class FieldsResourceIT {
 
     @Test
     @Transactional
+    public void getAllFieldsByUuidIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where uuid not equals to DEFAULT_UUID
+        defaultFieldsShouldNotBeFound("uuid.notEquals=" + DEFAULT_UUID);
+
+        // Get all the fieldsList where uuid not equals to UPDATED_UUID
+        defaultFieldsShouldBeFound("uuid.notEquals=" + UPDATED_UUID);
+    }
+
+    @Test
+    @Transactional
     public void getAllFieldsByUuidIsInShouldWork() throws Exception {
         // Initialize the database
         fieldsRepository.saveAndFlush(fields);
@@ -1470,6 +1638,19 @@ public class FieldsResourceIT {
 
     @Test
     @Transactional
+    public void getAllFieldsByBoolIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where bool not equals to DEFAULT_BOOL
+        defaultFieldsShouldNotBeFound("bool.notEquals=" + DEFAULT_BOOL);
+
+        // Get all the fieldsList where bool not equals to UPDATED_BOOL
+        defaultFieldsShouldBeFound("bool.notEquals=" + UPDATED_BOOL);
+    }
+
+    @Test
+    @Transactional
     public void getAllFieldsByBoolIsInShouldWork() throws Exception {
         // Initialize the database
         fieldsRepository.saveAndFlush(fields);
@@ -1505,6 +1686,19 @@ public class FieldsResourceIT {
 
         // Get all the fieldsList where enumeration equals to UPDATED_ENUMERATION
         defaultFieldsShouldNotBeFound("enumeration.equals=" + UPDATED_ENUMERATION);
+    }
+
+    @Test
+    @Transactional
+    public void getAllFieldsByEnumerationIsNotEqualToSomething() throws Exception {
+        // Initialize the database
+        fieldsRepository.saveAndFlush(fields);
+
+        // Get all the fieldsList where enumeration not equals to DEFAULT_ENUMERATION
+        defaultFieldsShouldNotBeFound("enumeration.notEquals=" + DEFAULT_ENUMERATION);
+
+        // Get all the fieldsList where enumeration not equals to UPDATED_ENUMERATION
+        defaultFieldsShouldBeFound("enumeration.notEquals=" + UPDATED_ENUMERATION);
     }
 
     @Test
